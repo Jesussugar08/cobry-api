@@ -5,12 +5,14 @@ dotenv.config()
 import pool from './db'
 import authRouter from './routes/auth'
 import clientRouter from './routes/client'
+import uploadRouter from './routes/upload'
 
 const app = express()
 app.use(cors())
 app.use(express.json())
 app.use('/api/auth', authRouter)
 app.use('/api/client', clientRouter)
+app.use('/api/upload', uploadRouter)
 
 const port = process.env.PORT || 3000
 
