@@ -22,13 +22,13 @@ export const getCLients = async (req: Request, res: Response) => {
 
 export const createCLients = async (req: Request, res: Response) => {
     try{
-        const { name, email, phone, ruc } = req.body
+        const { name, email, phone, ruc, logo_url } = req.body
         const result = await pool.query(
-            `insert into cobry.clients(user_id, name, email, phone, ruc)
-             values ($1, $2, $3, $4, $5)
+            `insert into cobry.clients(user_id, name, email, phone, ruc, logo_url)
+             values ($1, $2, $3, $4, $5, $6)
              RETURNING *
              `,
-             [1, name, email, phone, ruc]
+             [1, name, email, phone, ruc, logo_url]
              
         )
 
